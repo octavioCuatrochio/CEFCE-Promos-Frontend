@@ -1,0 +1,9 @@
+.promo-day-container {
+    width: 100%;
+}
+
+.promo-day-container ul {
+    list-style: none;
+    padding: 0;
+    padding: 0 2.5%;
+}

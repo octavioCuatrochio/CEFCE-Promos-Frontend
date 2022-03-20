@@ -1,0 +1,14 @@
+.promo-day__header {
+  /* width: 90%; */
+  background-color: #121212;
+  border-bottom: 2px solid #fddf5b;
+  display: flex;
+  align-items: center;
+  padding: 5%;
+}
+
+.promo-day__header h1 {
+  font-size: 1.5rem;
+    font-weight: lighter;
+    padding-right: 5%;
+}

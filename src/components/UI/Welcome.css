@@ -1,0 +1,37 @@
+.welcome {
+    margin: 15% 0;
+    padding: 0 15%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-bar {
+    background-color: #FDDF5B;
+    height: 4px;
+    animation: welcome-bar 2s;
+    width: 90%;
+
+    margin-bottom: 10%;
+
+}
+
+@keyframes welcome-bar {
+    from {
+        width: 0;
+    }
+    to {
+        width: 90%;
+    }
+}
+
+.welcome h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 2.5rem;
+}
+
+.welcome h2 {
+    text-align: center;
+    font-weight: 400;
+}

@@ -1,0 +1,13 @@
+.promo-container {
+    width: 100%;
+}
+
+.promo-container ul {
+    /* width: 100%; */
+    color: white;
+    text-decoration: none;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
