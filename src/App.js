@@ -1,15 +1,17 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import Container from "./components/UI/Container";
 import PromoContainer from "./components/Promo/PromoContainer"
 import Welcome from './components/UI/Welcome';
+import NavBar from './components/NavBar/NavBar';
 
 function App() {
 
   let PROMOS_PLACEHOLDER = [
     {
       id: 0,
-      dia: "martes",
+      dia: "lunes",
       nombre: "Descuento Antares",
       lugar: "Av. España 2254",
       tipo: "cefce",
@@ -18,6 +20,15 @@ function App() {
     },
     {
       id: 1,
+      dia: "lunes",
+      nombre: "promo asasas",
+      lugar: "calle falsa 123",
+      tipo: "cefce",
+      imagen: null,
+      descripcion: "una promo re piolaaa"
+    },
+    {
+      id: 2,
       dia: "lunes",
       nombre: "promo asasas",
       lugar: "calle falsa 123",
@@ -144,7 +155,18 @@ function App() {
   return (
     <Container>
       <Welcome />
-      <PromoContainer title="CEFCE Beneficios" items={cefcePromos} />
+      <NavBar />
+      <Switch>
+        <Route path="/" exact>
+          <Redirect to="/cefce" />
+        </Route>
+        <Route path="/cefce">
+          <PromoContainer items={cefcePromos} />
+        </Route>
+        <Route path="/facultad">
+          <PromoContainer items={uniPromos} />
+        </Route>
+      </Switch>
     </Container>
   );
 }

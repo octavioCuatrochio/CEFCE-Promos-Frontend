@@ -10,7 +10,6 @@
   border-radius: 4px;
   padding: 2.5% 5%;
   display: flex;
-  margin: 7.5% 0;
 }
 
 .promo-info {
@@ -43,6 +42,7 @@
 .promo-misc img {
   width: 80px;
   border-radius: 500px;
+  margin-bottom: 5%;
 }
 
 .promo-misc__ubication {
@@ -55,5 +55,5 @@
   font-style: normal;
   font-weight: 300;
   font-size: .75rem;
-  margin: 5% 0 0 10%;
+  margin-left: 10%;
 }

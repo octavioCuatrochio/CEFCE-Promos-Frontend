@@ -1,5 +1,3 @@
-import chevron from "../../images/svg/chevron-up.svg"
-
 function Location(props) {
     return (
         <svg width={props.width} viewBox="0 0 11 15">

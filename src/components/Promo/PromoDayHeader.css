@@ -4,7 +4,8 @@
   border-bottom: 2px solid #fddf5b;
   display: flex;
   align-items: center;
-  padding: 5%;
+  padding: 2.5%;
+  padding-left: 5%;
 }
 
 .promo-day__header h1 {

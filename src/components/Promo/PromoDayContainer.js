@@ -1,68 +1,54 @@
 import PromoDayHeader from "./PromoDayHeader";
 import PromoItem from "./PromoItem";
 import "./PromoDayContainer.css";
-import React from "react";
+import Chevron from "../svg/Chevron";
+import { useState } from "react";
+import { useSpring, animated } from "react-spring";
 
-class PromoDayContainer extends React.Component {
+function PromoDayContainer(props) {
 
-    constructor(props) {
+    const [isOpened, setIsOpened] = useState(false);
 
-        super(props);
-
-        // this.state = {
-        //     isOpened: false,
-        //     closedHeight: null
-        // };
-
-        // this.dayContainerHeight = null;
-
-        // this.toggleHandler = () => {
-        //     if (this.state.isOpened == true) {
-        //         this.setState({ isOpened: false })
-        //     } else {
-        //         this.setState({ isOpened: true })
-        //     }
-        // }
-
-        // this.getHeightHandler = (height) => {
-        //     this.dayContainerHeight = height + 2;
-
-        //     this.setState({
-        //         // isOpened: true,
-        //         closedHeight: height + 2
-        //     })
-        // }
+    function toggleHandler() {
+        setIsOpened(!isOpened);
     }
 
-    // componentDidUpdate() {
-    // console.log("aaa");
-    // console.log(this.state.isOpened);
-    // if (this.state.isOpened == true) {
-    //     this.dayContainerHeight = "100%";
-    // } else {
-    //     this.dayContainerHeight = this.state.closedHeight;
-    // }
-    // }
+    const openAnimation = useSpring({
+        from: { maxHeight: "1px" },
+        to: { maxHeight: isOpened ? "100vh" : "1px" },
+        config: { duration: "100" }
+    });
 
+    const iconAnimation = useSpring({
+        from: {
+            transform: "rotate(0deg)",
+            opacity: "0%"
+        },
+        to: {
+            transform: isOpened ? "rotate(0deg)" : "rotate(180deg)",
+            opacity: isOpened ? "100%" : "0%"
+        },
+        config: { duration: "500" }
+    });
 
-    render() {
-        return (
-            <li className="promo-day-container" style={{ maxHeight: this.dayContainerHeight }}>
-                <PromoDayHeader onAction={this.toggleHandler} onRender={this.getHeightHandler} title={this.props.day} />
-                <ul>
-                    {this.props.items.map((auxPromo) => (
-                        <PromoItem
-                            key={auxPromo.id}
-                            name={auxPromo.nombre}
-                            description={auxPromo.descripcion}
-                            img={auxPromo.imagen}
-                            ubication={auxPromo.lugar}
-                        />
-                    ))}
-                </ul>
-            </li>
-        );
-    }
+    return (
+        <li className="promo-day-container" >
+            <PromoDayHeader onAction={toggleHandler} title={props.day} >
+                <Chevron className="promo-day__chevron" style={iconAnimation} />
+            </PromoDayHeader>
+            <animated.ul className="promo-day__list" style={openAnimation}>
+                {props.items.map((auxPromo) => (
+                    <PromoItem
+                        key={auxPromo.id}
+                        name={auxPromo.nombre}
+                        description={auxPromo.descripcion}
+                        img={auxPromo.imagen}
+                        ubication={auxPromo.lugar}
+                    />
+                ))}
+            </animated.ul>
+        </li >
+    );
 }
 
 export default PromoDayContainer;

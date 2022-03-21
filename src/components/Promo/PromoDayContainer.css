@@ -2,8 +2,22 @@
     width: 100%;
 }
 
-.promo-day-container ul {
+.promo-day__list {
     list-style: none;
     padding: 0;
     padding: 0 2.5%;
+    max-height: 1px;
+    overflow: hidden;
+    transition: 1s ease-in-out;
+}
+
+.promo-day__list > * {
+    margin: 7.5% 0;
+}
+
+.promo-day__chevron {
+    transform: rotate(0deg);
+    fill: white;
+    opacity: 0;
+    width: 20px;
 }

@@ -1,0 +1,26 @@
+.navbar-button {
+    text-decoration: none;
+    padding: 2.5% 5%;
+    border-radius: 500px;
+    font-size: .75rem;
+}
+
+.cefce-button {
+    color: #FDDF5B;
+    border: 2px solid #FDDF5B;
+}
+
+.cefce-button__active {
+    color: black;
+    background-color: #FDDF5B;
+}
+
+.facultad-button {
+    color: #254773;
+    border: 2px solid #254773;
+}
+
+.facultad-button__active {
+    color: black;
+    background-color: #254773;
+}
