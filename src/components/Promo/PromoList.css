@@ -1,0 +1,13 @@
+.promo-list {
+    width: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.promo-list > * {
+    width: 80%;
+    border: 1px solid #254773;
+    margin: 5% 0;
+}

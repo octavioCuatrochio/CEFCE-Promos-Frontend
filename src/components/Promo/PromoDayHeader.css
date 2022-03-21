@@ -1,10 +1,9 @@
 .promo-day__header {
-  /* width: 90%; */
   background-color: #121212;
   border-bottom: 2px solid #fddf5b;
   display: flex;
   align-items: center;
-  padding: 2.5%;
+  padding: 3.5%;
   padding-left: 5%;
 }
 

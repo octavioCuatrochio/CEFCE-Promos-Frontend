@@ -47,7 +47,7 @@ function PromoDayContainer(props) {
                     />
                 ))}
             </animated.ul>
-        </li >
+        </li>
     );
 }
 

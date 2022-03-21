@@ -5,6 +5,7 @@ import Container from "./components/UI/Container";
 import PromoContainer from "./components/Promo/PromoContainer"
 import Welcome from './components/UI/Welcome';
 import NavBar from './components/NavBar/NavBar';
+import PromoList from './components/Promo/PromoList';
 
 function App() {
 
@@ -35,6 +36,24 @@ function App() {
       tipo: "cefce",
       imagen: null,
       descripcion: "una promo re piolaaa"
+    },
+    {
+      id: 3,
+      dia: "lunes",
+      nombre: "promo asasas",
+      lugar: "calle falsa 123",
+      tipo: "facultad",
+      imagen: null,
+      descripcion: "una promo re piolaaa"
+    },
+    {
+      id: 0,
+      dia: "lunes",
+      nombre: "Descuento Antares",
+      lugar: "Av. España 2254",
+      tipo: "facultad",
+      imagen: null,
+      descripcion: "Descuento en birras y papas toda la noche de un 30%."
     }
   ]
 
@@ -164,7 +183,7 @@ function App() {
           <PromoContainer items={cefcePromos} />
         </Route>
         <Route path="/facultad">
-          <PromoContainer items={uniPromos} />
+          <PromoList items={uniPromos} />
         </Route>
       </Switch>
     </Container>
