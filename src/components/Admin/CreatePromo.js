@@ -46,14 +46,14 @@ function CreatePromo(props) {
 
     function checkInputs() {
 
-        if (day == null || day == "" || day.length == 0) {
-            console.log("AAAAA");
-            setProp("day", false);
-        } else setProp("day", true);
+        // if (day == null || day == "" || day.length == 0) {
+        //     console.log("AAAAA");
+        //     setProp("day", false);
+        // } else setProp("day", true);
 
-        if (title == null || title == "") {
-            setProp("title", false);
-        } else setProp("title", true);
+        // if (title == null || title == "") {
+        //     setProp("title", false);
+        // } else setProp("title", true);
 
     }
 
