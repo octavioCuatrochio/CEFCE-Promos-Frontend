@@ -1,0 +1,17 @@
+.button {
+  border-radius: 4px;
+  border: none;
+  padding: 4% 2%;
+  font-size: 1.25rem;
+}
+
+.button-og {
+  background-color: #fddf5b;
+  color: black;
+}
+
+.button-alt {
+  background-color: transparent;
+  border: 2px solid #fddf5b;
+  color: white;
+}

@@ -1,0 +1,12 @@
+.promo-custom__container {
+  display: flex;
+  width: 100%;
+}
+
+.promo-custom__container > :first-child {
+  width: 80%;
+}
+
+.promo-custom__container > :last-child {
+    width: 20%;
+}

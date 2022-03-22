@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import Container from "./components/UI/Container";
@@ -6,6 +6,8 @@ import PromoContainer from "./components/Promo/PromoContainer"
 import Welcome from './components/UI/Welcome';
 import NavBar from './components/NavBar/NavBar';
 import PromoList from './components/Promo/PromoList';
+
+import AdminContainer from "./components/Admin/AdminContainer";
 
 function App() {
 
@@ -172,21 +174,31 @@ function App() {
   filterPromos(promos);
 
   return (
-    <Container>
-      <Welcome />
-      <NavBar />
-      <Switch>
-        <Route path="/" exact>
-          <Redirect to="/cefce" />
-        </Route>
-        <Route path="/cefce">
-          <PromoContainer items={cefcePromos} />
-        </Route>
-        <Route path="/facultad">
-          <PromoList items={uniPromos} />
-        </Route>
-      </Switch>
-    </Container>
+    <Switch>
+      <Route path="/admin/45545" exact>
+        <AdminContainer/>
+      </Route>
+      <Route path="/">
+        <Container>
+          <Welcome 
+          title="Exa descuentos & Beneficios"
+          subtitle="Mirá y aprovechá todos los beneficios que tenemos para vos!"
+           />
+          <NavBar />
+          <Switch>
+            <Route path="/" exact>
+              <Redirect to="/cefce" />
+            </Route>
+            <Route path="/cefce">
+              <PromoContainer items={cefcePromos} />
+            </Route>
+            <Route path="/facultad">
+              <PromoList items={uniPromos} />
+            </Route>
+          </Switch>
+        </Container>
+      </Route>
+    </Switch>
   );
 }
 

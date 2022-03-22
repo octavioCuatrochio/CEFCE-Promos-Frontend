@@ -12,6 +12,10 @@
 }
 
 .promo-day__list > * {
+    width: 85%;
+}
+
+.promo-day__list > * {
     margin: 5% 0;
 }
 

@@ -2,8 +2,12 @@ import "./PromoItem.css";
 import Location from "../svg/Location";
 
 function PromoItem(props) {
+
+    let classes = "promo-item ";
+    if(props.className != null) classes += props.className;
+
     return (
-        <li className="promo-item">
+        <li className={classes}>
             <div className="promo-info">
                 <h1>{props.name}</h1>
                 <h2>{props.description}</h2>

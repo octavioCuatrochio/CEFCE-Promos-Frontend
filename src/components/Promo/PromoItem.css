@@ -4,8 +4,7 @@
 }
 
 .promo-item {
-  width: 85%;
-  background-color: #121212;
+  background-color: #242424;
   border: 1px solid #fddf5b;
   border-radius: 4px;
   padding: 2.5% 5%;
@@ -56,4 +55,8 @@
   font-weight: 300;
   font-size: .75rem;
   margin-left: 10%;
+}
+
+.promo-item__facultad {
+  border: 1px solid #254773;
 }
