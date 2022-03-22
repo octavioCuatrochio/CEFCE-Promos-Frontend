@@ -13,14 +13,6 @@ function CreatePromo(props) {
     const [type, setType] = useState();
     const [image, setImage] = useState(null);
 
-    let validInputs = {
-        day: true,
-        title: true,
-        desc: true,
-    }
-
-    const [valid, setValid] = useState(validInputs);
-
     async function submitHandler(event) {
         event.preventDefault();
 
@@ -55,7 +47,7 @@ function CreatePromo(props) {
     return (
         <form className="create-promo__form" onSubmit={submitHandler}>
 
-            <Select title="Día" valid={valid.day} onChange={daySelectHandler}>
+            <Select title="Día" onChange={daySelectHandler}>
                 <option value="lunes">Lunes</option>
                 <option value="martes" >Martes</option>
                 <option value="miercoles">Miércoles</option>
@@ -65,7 +57,7 @@ function CreatePromo(props) {
                 <option value="domingo" >Domingo</option>
             </Select>
 
-            <Input placeholder="Título" saveInput={setTitle} valid={valid.title} value={title} />
+            <Input placeholder="Título" saveInput={setTitle} value={title} />
             <Input placeholder="Descripción" saveInput={setDesc} value={desc} />
             <Input placeholder="Lugar" saveInput={setUbi} value={ubi} />
 
