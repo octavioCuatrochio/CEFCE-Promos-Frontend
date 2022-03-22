@@ -44,33 +44,6 @@ function CreatePromo(props) {
         props.onClose();
     }
 
-    function checkInputs() {
-
-        // if (day == null || day == "" || day.length == 0) {
-        //     console.log("AAAAA");
-        //     setProp("day", false);
-        // } else setProp("day", true);
-
-        // if (title == null || title == "") {
-        //     setProp("title", false);
-        // } else setProp("title", true);
-
-    }
-
-    function setProp(name, value) {
-        console.log(name, value);
-
-        let obj = { ...valid };
-        obj[name] = value;
-
-        console.log(obj);
-        console.log(valid);
-
-        setValid(() => {
-            return obj;
-        });
-    }
-
     function daySelectHandler(event) {
         setDay(event.target.value);
     }
