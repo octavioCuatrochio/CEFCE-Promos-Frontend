@@ -5,7 +5,7 @@ import "./PromoCustomItem.css";
 function PromoCustomItem(props) {
 
     let classes = "";
-    if (props.tipo != "cefce") {
+    if (props.tipo !== "cefce") {
         classes = "promo-item__facultad";
     }
 

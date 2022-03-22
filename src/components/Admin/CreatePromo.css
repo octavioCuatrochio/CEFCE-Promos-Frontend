@@ -17,6 +17,15 @@
     border-radius: 4px;
 }
 
+.select_invalid {
+    border: 2px solid red !important;
+}
+
+.create-promo__form select option {
+    background-color: #242424;
+    color: white;
+}
+
 .create-promo__wrapper {
     display: flex;
     justify-content: center;

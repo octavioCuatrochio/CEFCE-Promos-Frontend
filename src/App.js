@@ -1,4 +1,4 @@
-import { useState } from 'react';
+// import { useState } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom";
 import './App.css';
 import Container from "./components/UI/Container";
@@ -22,31 +22,22 @@ function App() {
       descripcion: "Descuento en birras y papas toda la noche de un 30%."
     },
     {
-      id: 1,
-      dia: "lunes",
-      nombre: "promo asasas",
-      lugar: "calle falsa 123",
-      tipo: "cefce",
-      imagen: null,
-      descripcion: "una promo re piolaaa"
-    },
-    {
       id: 2,
       dia: "lunes",
-      nombre: "promo asasas",
-      lugar: "calle falsa 123",
+      nombre: "promo Tandilia",
+      lugar: "calle Brasil 123",
       tipo: "cefce",
       imagen: null,
-      descripcion: "una promo re piolaaa"
+      descripcion: "una promo de papas."
     },
     {
       id: 3,
-      dia: "lunes",
-      nombre: "promo asasas",
-      lugar: "calle falsa 123",
+      dia: "martes",
+      nombre: "promo",
+      lugar: "calle 123",
       tipo: "facultad",
       imagen: null,
-      descripcion: "una promo re piolaaa"
+      descripcion: "una promo."
     },
     {
       id: 0,
@@ -59,7 +50,7 @@ function App() {
     }
   ]
 
-  const [promos, setPromos] = useState(PROMOS_PLACEHOLDER);
+  // const [promos, setPromos] = useState(PROMOS_PLACEHOLDER);
 
   let cefcePromos = [
     {
@@ -164,6 +155,8 @@ function App() {
           case "domingo":
             cefcePromos[6].promos.push(auxPromo);
             break;
+          default:
+            console.log("algo salió mal");
         }
 
       } else {
@@ -171,19 +164,19 @@ function App() {
       }
     }
   }
-  filterPromos(promos);
+  filterPromos(PROMOS_PLACEHOLDER);
 
   return (
     <Switch>
       <Route path="/admin/45545" exact>
-        <AdminContainer/>
+        <AdminContainer />
       </Route>
       <Route path="/">
         <Container>
-          <Welcome 
-          title="Exa descuentos & Beneficios"
-          subtitle="Mirá y aprovechá todos los beneficios que tenemos para vos!"
-           />
+          <Welcome
+            title="Exa descuentos & Beneficios"
+            subtitle="Mirá y aprovechá todos los beneficios que tenemos para vos!"
+          />
           <NavBar />
           <Switch>
             <Route path="/" exact>

@@ -8,10 +8,10 @@ function AdminContainer(params) {
 
     return (
         <React.Fragment>
-            {/* {!logged && <Login onValid={setLogged} />} */}
-            {/* {logged &&  */}
+            {!logged && <Login onValid={setLogged} />}
+            {logged && 
             <AdminPanel />
-            {/* } */}
+            }
         </React.Fragment>
     )
 }

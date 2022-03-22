@@ -4,7 +4,7 @@ function Button(props) {
 
     let classes = "button ";
     
-    if (props.alt != null && props.alt == true) classes += "button-alt ";
+    if (props.alt != null && props.alt === true) classes += "button-alt ";
     else classes += "button-og ";
 
     if (props.className != null) classes += props.className;

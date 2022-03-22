@@ -1,12 +1,18 @@
-.input {
+.select {
+    color: white;
     font-size: 1.35rem;
-    border-radius: 4px;
     background-color: transparent;
     border: 2px solid #fddf5b;
     padding: 2.5% 5%;
+    border-radius: 4px;
+}
+
+.select option {
+    background-color: #242424;
     color: white;
 }
 
-.invalid {
+.select_invalid {
     border: 2px solid red !important;
 }
+
