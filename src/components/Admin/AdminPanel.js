@@ -90,7 +90,7 @@ function AdminPanel() {
 
     setPromos(
       promos.filter(function (promo) {
-        return promo.id != id;
+        return promo.id !== id;
       })
     );
 
