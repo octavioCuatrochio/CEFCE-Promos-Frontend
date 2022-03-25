@@ -95,9 +95,8 @@ function AdminPanel() {
     );
 
     fetch("https://cefcepromoapi.000webhostapp.com/api/promo/" + id, {
-      method: 'DELETE',
-      mode: 'cors',
-      headers: { "Content-Type": "application/json" },
+      method: 'GET',
+      // headers: { "Content-Type": "application/json" },
     })
       .then(response => response.json())
       .then(code => console.log(code))
