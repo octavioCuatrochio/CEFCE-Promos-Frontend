@@ -3,9 +3,14 @@ import TrashCan from "../svg/TrashCan";
 import Pencil from "../svg/Pencil";
 
 function PromoOptions(props) {
+
+    function deleteHandler(){
+        props.onDelete(props.id);
+    }
+
     return (
         <div className="promo-options__container">
-            <button className="promo-options__delete">
+            <button onClick={deleteHandler} className="promo-options__delete">
                 <TrashCan width="30" fill="white" />
             </button>
             <button className="promo-options__edit">

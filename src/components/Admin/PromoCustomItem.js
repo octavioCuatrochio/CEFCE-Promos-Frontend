@@ -17,7 +17,7 @@ function PromoCustomItem(props) {
                 img={props.imagen}
                 ubication={props.lugar}
             />
-            <PromoOptions id={props.id} />
+            <PromoOptions id={props.id} onDelete={props.onDelete} />
         </div>
     )
 }
