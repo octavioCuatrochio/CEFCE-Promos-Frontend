@@ -136,28 +136,25 @@ function App() {
   }, [promos]);
 
 
-  const fetchPromosHandler = useCallback(async () => {
-    // setIsLoading(true);
-    // setError(null);
-    try {
-      const response = await fetch('https://cefcepromoapi.000webhostapp.com/api/promos');
-      if (!response.ok) {
-        throw new Error('Something went wrong!');
-      }
-      const data = await response.json();
-
-      setPromos(data);
-      filterPromos();
-
-    } catch (error) {
-      console.log(error.message);
-    }
-    // setIsLoading(false);
-  }, [filterPromos]);
-
-
   useEffect(() => {
-    fetchPromosHandler();
+    async () => {
+      // setIsLoading(true);
+      // setError(null);
+      try {
+        const response = await fetch('https://cefcepromoapi.000webhostapp.com/api/promos');
+        if (!response.ok) {
+          throw new Error('Something went wrong!');
+        }
+        const data = await response.json();
+
+        setPromos(data);
+        filterPromos();
+
+      } catch (error) {
+        console.log(error.message);
+      }
+      // setIsLoading(false);
+    };
   }, []);
 
 
