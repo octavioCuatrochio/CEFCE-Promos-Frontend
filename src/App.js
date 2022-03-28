@@ -50,14 +50,13 @@ function App() {
   //   }
   // ]
 
-  const [promos, setPromos] = useState([]);
-  const [cefceListPromos, setCefceListPromos] = useState([
-  ]);
+  // const [promos, setPromos] = useState([]);
+  const [cefceListPromos, setCefceListPromos] = useState([]);
   const [uniListPromos, setUniListPromos] = useState([]);
   // const [error, setError] = useState(false);
   // const [isLoading, setIsLoading] = useState(false);
 
-  const filterPromos = useCallback(() => {
+  const filterPromos = useCallback((apiPromos) => {
 
     let cefcePromos = [
       {
@@ -99,8 +98,7 @@ function App() {
 
     let uniPromos = [];
 
-    for (let auxPromo of promos) {
-
+    for (let auxPromo of apiPromos) {
       if (auxPromo.tipo === "cefce") {
         switch (auxPromo.dia) {
           case "lunes":
@@ -133,22 +131,27 @@ function App() {
     }
     setCefceListPromos(cefcePromos);
     setUniListPromos(uniPromos);
-  }, [promos]);
+  }, []);
 
+
+  // const fetchPromosWrapper = () => {
+  // }
 
   const fetchPromosHandler = useCallback(async () => {
     // setIsLoading(true);
     // setError(null);
     try {
-      console.log("aaaaaaaaaaaaaaaaa")
-      const response = await fetch('https://cefcepromoapi.000webhostapp.com/api/promos');
+      const response = await
+        // fetch("http://localhost/Dummy API/api/promos");
+      fetch("https://cefcepromoapi.000webhostapp.com/api/promos");
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
       const data = await response.json();
 
-      setPromos(data);
-      filterPromos();
+      console.log(data);
+      // setPromos(data);
+      filterPromos(data);
 
     } catch (error) {
       console.log(error.message);
@@ -159,7 +162,7 @@ function App() {
 
   useEffect(() => {
     fetchPromosHandler();
-  }, []);
+  }, [fetchPromosHandler]);
 
 
   return (
