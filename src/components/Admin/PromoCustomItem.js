@@ -4,6 +4,10 @@ import "./PromoCustomItem.css";
 
 function PromoCustomItem(props) {
 
+    function editHandler(){
+        props.onEdit(props)
+    }
+
     let classes = "";
     if (props.tipo !== "cefce") {
         classes = "promo-item__facultad";
@@ -17,7 +21,7 @@ function PromoCustomItem(props) {
                 img={props.imagen}
                 ubication={props.lugar}
             />
-            <PromoOptions id={props.id} onDelete={props.onDelete} />
+            <PromoOptions id={props.id} onEdit={editHandler} onDelete={props.onDelete} />
         </div>
     )
 }

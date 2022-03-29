@@ -14,12 +14,14 @@ function AdminList(props) {
                     <PromoCustomItem
                         key={auxPromo.id}
                         id={auxPromo.id}
+                        dia={auxPromo.dia}
                         nombre={auxPromo.nombre}
                         descripcion={auxPromo.descripcion}
                         imagen={auxPromo.imagen}
                         lugar={auxPromo.lugar}
                         tipo={auxPromo.tipo}
                         onDelete={props.onDelete}
+                        onEdit={props.onEdit}
                     />
                 ))}
             </ul>

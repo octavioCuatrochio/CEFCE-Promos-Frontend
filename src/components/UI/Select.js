@@ -14,7 +14,7 @@ function Select(props) {
     }
 
     return (
-        <select className={classes} onChange={props.onChange}>
+        <select className={classes} value={props.value} onChange={props.onChange}>
             <option selected disabled>{props.title}</option>
             {props.children}
         </select>

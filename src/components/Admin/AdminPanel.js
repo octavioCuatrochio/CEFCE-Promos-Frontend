@@ -2,15 +2,14 @@ import { useState, useCallback, useEffect } from "react";
 import Button from "../UI/Button";
 import Welcome from "../UI/Welcome";
 import AdminList from "./AdminList";
+import Popup from "../UI/Popup";
 import "./AdminPanel.css";
 import CreatePromo from "./CreatePromo";
+import PromoForm from "./PromoForm";
 
 
 function AdminPanel() {
 
-
-  const [promos, setPromos] = useState([]);
-  const [isOpened, setIsOpened] = useState(false);
 
   // let PROMOS_PLACEHOLDER = [
   //   {
@@ -60,11 +59,19 @@ function AdminPanel() {
   //   }
   // ]
 
+  const [promos, setPromos] = useState([]);
+  const [isOpened, setIsOpened] = useState(false);
+  const [showEditPanel, setShowEditPanel] = useState(false);
+  const [editedPromo, setEditedPromo] = useState({});
+
+
   const fetchPromosHandler = useCallback(async () => {
     // setIsLoading(true);
     // setError(null);
     try {
-      const response = await fetch('https://cefcepromoapi.000webhostapp.com/api/promos');
+      const response = await
+        fetch('https://cefcepromoapi.000webhostapp.com/api/promos');
+      // fetch("http://localhost/Dummy API/api/promos");
       if (!response.ok) {
         throw new Error('Something went wrong!');
       }
@@ -81,6 +88,30 @@ function AdminPanel() {
     fetchPromosHandler();
   }, [fetchPromosHandler]);
 
+  function toggleEditPanelHandler() {
+
+    if (!showEditPanel) {
+      disableScroll();
+    } else enableScroll();
+
+    setShowEditPanel(!showEditPanel);
+  }
+
+
+  function disableScroll() {
+    // Get the current page scroll position
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
+
+    // if any scroll is attempted, set this to the previous value
+    window.onscroll = () => {
+      window.scrollTo(scrollLeft, scrollTop);
+    };
+  }
+
+  function enableScroll() {
+    window.onscroll = function () { };
+  }
 
   function toggleOpenedHandler() {
     setIsOpened(!isOpened);
@@ -103,7 +134,11 @@ function AdminPanel() {
       .catch(error => console.log(error));
   }
 
-
+  function editHandler(promoData) {
+    console.log(promoData);
+    setEditedPromo(promoData);
+    toggleEditPanelHandler();
+  }
 
 
   function saveNewPromoHandler(promo) {
@@ -115,8 +150,23 @@ function AdminPanel() {
     });
   }
 
+  function saveUpdatedPromoHandler(updatedPromo) {
+
+    const promosAux = promos.filter((promo) => promo.id !== updatedPromo.id);
+
+    setPromos([
+        updatedPromo,
+        ...promosAux
+      ]);
+  }
+
   return (
     <div className="admin-panel__container">
+      {showEditPanel &&
+        <Popup>
+          <PromoForm onClose={toggleEditPanelHandler} previous={editedPromo} onNewPromo={saveUpdatedPromoHandler} />
+        </Popup>
+      }
       <Welcome
         title="Admin Panel"
         subtitle="Editá, agregá y borrá los descuentos y promociones actuales."
@@ -127,7 +177,7 @@ function AdminPanel() {
           onClick={toggleOpenedHandler} >Añadir nuevo </Button>}
       </div>
 
-      <AdminList title="Publicados" onDelete={deleteHandler} items={promos} />
+      <AdminList title="Publicados" onEdit={editHandler} onDelete={deleteHandler} items={promos} />
 
     </div>
   )

@@ -13,7 +13,7 @@ function PromoOptions(props) {
             <button onClick={deleteHandler} className="promo-options__delete">
                 <TrashCan width="30" fill="white" />
             </button>
-            <button className="promo-options__edit">
+            <button onClick={props.onEdit} className="promo-options__edit">
                 <Pencil width="30" fill="white" />
             </button>
         </div>
